@@ -12,10 +12,10 @@
     "url": "https://github.com/aleksnyder/wmata-cli/issues"
   },
   "version": "0.0.1",
-  "main": "./bin/cli.js",
+  "main": "./dist/index.js",
   "bin": {
-    "wmata-cli": "./bin/cli.js",
-    "wcli": "./bin/cli.js"
+    "wmata-cli": "./dist/index.js",
+    "wcli": "./dist/index.js"
   },
   "files": [
     "dist"
