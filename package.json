@@ -11,13 +11,14 @@
   "bugs": {
     "url": "https://github.com/aleksnyder/wmata-cli/issues"
   },
-  "version": "0.0.2",
-  "main": "./dist/index.js",
+  "version": "0.0.3",
+  "main": "./bin/cli.js",
   "bin": {
-    "wmata-cli": "./dist/index.js",
-    "wcli": "./dist/index.js"
+    "wmata-cli": "./bin/cli.js",
+    "wcli": "./bin/cli.js"
   },
   "files": [
+    "bin",
     "dist"
   ],
   "scripts": {
@@ -90,6 +91,7 @@
   },
   "pkg": {
     "scripts": [
+      "bin/cli.js",
       "dist/**/*.js"
     ],
     "targets": [
