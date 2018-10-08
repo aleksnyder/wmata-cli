@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import program from 'commander';
 import { bold, error, green } from './utils/format';
 import metroCli from './command';
