@@ -1,10 +1,12 @@
 import program from 'commander';
+import inquirer from 'inquirer';
 import { bold, error, green } from './utils/format';
 import metroCli from './command';
 
 program
-  .command('list <color>')
+  .command('list')
   .alias('ls')
+  .option('-c, --color <color>', 'List stations by line color')
   .on('--help', () => {
     console.log('');
     console.log('  List all available stations running on the specified line.');
@@ -12,7 +14,7 @@ program
     console.log('  Example:');
     console.log(
       `    ${green(
-        'wmata-cli list Orange'
+        'wmata-cli list -c Orange'
       )}    => Show stations belonging to the Orange line.  Lines include "Orange", "Blue", "Silver", "Green", "Yellow", and "Red"`
     );
     console.log('');
@@ -21,8 +23,24 @@ program
     )}
         `);
   })
-  .action(color => {
-    metroCli.list(color);
+  .action(option => {
+    if (!option.color) {
+      inquirer
+        .prompt([
+          {
+            type: 'list',
+            name: 'line',
+            message: 'Select a line color:',
+            choices: ['Orange', 'Blue', 'Green', 'Yellow', 'Red', 'Silver'],
+            default: [],
+          },
+        ])
+        .then(answer => {
+          metroCli.list(answer.line);
+        });
+    } else {
+      metroCli.list(option.color);
+    }
   });
 
 program
