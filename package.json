@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/aleksnyder/wmata-cli/issues"
   },
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "./dist/cli.js",
   "bin": {
     "wmata-cli": "./dist/cli.js",
