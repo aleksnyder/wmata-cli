@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/aleksnyder/wmata-cli/issues"
   },
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "./dist/cli.js",
   "bin": {
     "wmata-cli": "./dist/cli.js",
@@ -23,6 +23,7 @@
   "scripts": {
     "build": "npm run clean && webpack --config webpack.config.js -p",
     "clean": "rimraf dist packed",
+    "localdev": "NODE_ENV=development node bin/cli.js",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
     "pack": "pkg . --out-path packed",
@@ -84,7 +85,7 @@
     "cli"
   ],
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=12.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -103,9 +104,9 @@
       "dist/**/*.js"
     ],
     "targets": [
-      "node8-macos",
-      "node8-linux",
-      "node8-win"
+      "node12-macos",
+      "node12-linux",
+      "node12-win"
     ]
   }
 }

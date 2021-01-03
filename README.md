@@ -6,17 +6,10 @@ All data comes from [WMATA Developer](https://developer.wmata.com/docs/services/
 
 ## Install
 
-In order to use wmata-cli, make sure that you have [Node](https://nodejs.org/) version 8.0.0 or higher.
+In order to use wmata-cli, make sure that you have [Node](https://nodejs.org/) version 12.0.0 or higher.
 
 ```
 $ npm install -g wmata-cli
-```
-
-Or download the latest version [pkg](https://github.com/zeit/pkg) binaries in [releases](https://github.com/aleksnyder/wmata-cli/releases). It can be run on Linux, macOs and Windows.
-For example:
-
-```
-./wmata-cli station Smithsonian
 ```
 
 ## Usage

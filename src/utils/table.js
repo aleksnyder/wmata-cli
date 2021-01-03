@@ -23,6 +23,6 @@ const basicTable = () =>
     wordWrap: true,
   });
 
-module.exports = {
-  basicTable,
+export {
+  basicTable
 };
