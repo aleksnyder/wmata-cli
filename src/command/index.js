@@ -1,5 +1,5 @@
-import list from './list';
-import station from './station';
-import incidents from './incidents';
+import list from './list/index.js';
+import station from './station/index.js';
+import incidents from './incidents/index.js';
 
 export default { list, station, incidents };

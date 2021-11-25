@@ -1,7 +1,7 @@
 import program from 'commander';
 import inquirer from 'inquirer';
-import { bold, error, green } from './utils/format';
-import metroCli from './command';
+import { bold, error, green } from './utils/format.js';
+import metroCli from './command/index.js';
 
 program
   .command('list')

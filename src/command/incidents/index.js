@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { bold } from '../../utils/format';
-import { basicTable } from '../../utils/table';
+import { bold } from '../../utils/format.js';
+import { basicTable } from '../../utils/table.js';
 
 const vAlignCenter = columns =>
   columns.map(column => {
