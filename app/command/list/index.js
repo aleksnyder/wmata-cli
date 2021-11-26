@@ -1,6 +1,6 @@
 import axios from 'axios';
 import inquirer from 'inquirer';
-import cli from '../index.js.js';
+import cli from '../../index.js';
 
 const stationsUrl =
   'https://api.wmata.com/Rail.svc/json/jStations?contentType=json&api_key=f640f6ee5156453b864f6582f585dd73';

@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/aleksnyder/wmata-cli/issues"
   },
-  "version": "0.0.11",
+  "version": "1.0",
   "main": "./app/cli.js",
   "bin": {
     "wmata-cli": "./app/cli.js",
@@ -22,16 +22,14 @@
     "app"
   ],
   "scripts": {
-    "build": "webpack --config webpack.config.js -p",
     "localdev": "NODE_ENV=development node bin/cli.js",
     "lint": "eslint app",
     "lint:fix": "npm run lint -- --fix",
     "pack": "pkg . --out-path packed",
-    "prepublishOnly": "npm run build && echo '#!/usr/bin/env node' | cat - app/index.js > temp && mv temp bin/cli.js",
     "test": "npm run lint:fix && npm run testonly:cov",
-    "testonly": "NODE_ENV=test jest",
-    "testonly:cov": "jest --coverage --runInBand --forceExit --no-cache",
-    "testonly:watch": "jest --watch"
+    "testonly": "NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
+    "testonly:cov": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --runInBand --forceExit --no-cache",
+    "testonly:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -41,18 +39,9 @@
     "inquirer": "^6.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/eslint-parser": "^7.16.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.2.3",
-    "babel-loader": "^8.0.5",
-    "copy-webpack-plugin": "^4.6.0",
     "eslint": "^7.5.0",
     "eslint-config-airbnb": "^19.0.1",
     "eslint-config-prettier": "^3.4.0",
-    "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
@@ -61,11 +50,7 @@
     "jest": "^27.3.0",
     "pkg": "^4.3.7",
     "prettier": "^1.8.2",
-    "prettier-package-json": "^1.4.0",
-    "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^4.28.4",
-    "webpack-cli": "^3.2.1",
-    "webpack-node-externals": "^1.7.2"
+    "prettier-package-json": "^1.4.0"
   },
   "keywords": [
     "WMATA",
@@ -86,7 +71,8 @@
     ],
     "testPathIgnorePatterns": [
       "node_modules/"
-    ]
+    ],
+    "transform": {}
   },
   "pkg": {
     "scripts": [
