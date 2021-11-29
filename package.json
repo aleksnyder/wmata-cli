@@ -25,7 +25,6 @@
     "localdev": "NODE_ENV=development node bin/cli.js",
     "lint": "eslint app",
     "lint:fix": "npm run lint -- --fix",
-    "pack": "pkg . --out-path packed",
     "test": "npm run lint:fix && npm run testonly:cov",
     "testonly": "NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
     "testonly:cov": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --runInBand --forceExit --no-cache",
@@ -48,7 +47,6 @@
     "eslint-plugin-react": "^7.12.3",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.3.0",
-    "pkg": "^4.3.7",
     "prettier": "^1.8.2",
     "prettier-package-json": "^1.4.0"
   },
