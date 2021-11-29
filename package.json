@@ -22,6 +22,7 @@
     "app"
   ],
   "scripts": {
+    "build": "tsc app/*.ts",
     "localdev": "NODE_ENV=development node bin/cli.js",
     "lint": "eslint app",
     "lint:fix": "npm run lint -- --fix",
