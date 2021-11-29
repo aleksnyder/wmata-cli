@@ -1,5 +1,26 @@
 import Table from 'cli-table3';
 
+/**
+ * Vertically aligns the table cell text.
+ * 
+ * @param {object} columns
+ *   Collection of table columns to vertically center.
+ * 
+ * @returns {object}
+ *   Return columns object with vertically centered text.
+ */
+const vAlignCenter = (/** @type {any[]} */ columns) =>
+  columns.map(column => {
+    if (typeof column === 'string') {
+      return { content: column, vAlign: 'center', hAlign: 'center' };
+    }
+
+    return { ...column, vAlign: 'center' };
+  });
+
+/**
+ * Basic table structure to be shared across all command outputs.
+ */
 const basicTable = () =>
   new Table({
     head: [],
@@ -24,5 +45,6 @@ const basicTable = () =>
   });
 
 export {
-  basicTable
+  basicTable,
+  vAlignCenter
 };

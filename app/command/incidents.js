@@ -1,30 +1,15 @@
-import axios from 'axios';
-import { bold } from '../../utils/format.js';
-import { basicTable } from '../../utils/table.js';
-
-const vAlignCenter = columns =>
-  columns.map(column => {
-    if (typeof column === 'string') {
-      return { content: column, vAlign: 'center', hAlign: 'center' };
-    }
-
-    return { ...column, vAlign: 'center' };
-  });
+import Command from './command.js';
+import { bold } from '../utils/format.js';
+import { basicTable, vAlignCenter } from '../utils/table.js';
+import { apiKey } from '../utils/constants.js';
 
 const incidentsUrl =
-  'https://api.wmata.com/Incidents.svc/json/Incidents?api_key=f640f6ee5156453b864f6582f585dd73';
+  `https://api.wmata.com/Incidents.svc/json/Incidents?api_key=${apiKey}`;
 
-const getIncidents = async url => {
-  try {
-    const response = await axios.get(url);
-    return response.data.Incidents;
-  } catch (error) {
-    console.log(error);
-  }
-};
+const incidents = new Command(incidentsUrl, 'Incidents');
 
 export default function() {
-  getIncidents(incidentsUrl).then(data => {
+  incidents.getResults().then(data => {
     const incidentsTable = basicTable();
 
     incidentsTable.push([

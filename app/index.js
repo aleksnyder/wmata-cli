@@ -1,9 +1,9 @@
 import program from 'commander';
 import inquirer from 'inquirer';
-import { bold, error, green } from './utils/format.js';
-import station from './command/station/index.js';
-import list from './command/list/index.js';
-import incidents from './command/incidents/index.js';
+import { bold, error, wmataGreen } from './utils/format.js';
+import station from './command/stations.js';
+import list from './command/list.js';
+import incidents from './command/incidents.js';
 
 export default () => {
   program
@@ -26,7 +26,7 @@ export default () => {
       )}
           `);
     })
-    .action(option => {
+    .action((/** @type {{ color: any; }} */ option) => {
       if (!option.color) {
         inquirer
           .prompt([
@@ -67,7 +67,7 @@ export default () => {
       )}
           `);
     })
-    .action(name => {
+    .action((/** @type {any} */ name) => {
       station(name);
     });
 
@@ -93,6 +93,9 @@ export default () => {
     process.exit(1);
   });
 
+  // If the command following 'wcli' or 'wmata-cli' doesn't match the
+  // above commands, display the 'help' command to steer the user
+  // in the right direction.
   if (process.argv.length === 2) program.help();
 
   program.parse(process.argv);

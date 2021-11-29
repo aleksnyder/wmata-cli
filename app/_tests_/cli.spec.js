@@ -12,5 +12,11 @@ describe('cli', () => {
     jest.resetModules();
   });
 
-  // TODO: Add tests after typescript/classes refactor
+  // TODO: Add tests after Jest supports ES modules.
+  // @see https://github.com/facebook/jest/pull/10976
+  it('should return true', () => {
+    const placeholder = true;
+
+    expect(placeholder).toBe(true);
+  });
 });

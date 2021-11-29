@@ -1,30 +1,15 @@
-import axios from 'axios';
-import { bold } from '../../utils/format.js';
-import { basicTable } from '../../utils/table.js';
-
-const vAlignCenter = columns =>
-  columns.map(column => {
-    if (typeof column === 'string') {
-      return { content: column, vAlign: 'center', hAlign: 'center' };
-    }
-
-    return { ...column, vAlign: 'center' };
-  });
+import Command from './command.js';
+import { bold } from '../utils/format.js';
+import { basicTable, vAlignCenter } from '../utils/table.js';
+import { apiKey } from '../utils/constants.js';
 
 const trainsUrl =
-  'https://api.wmata.com/StationPrediction.svc/json/GetPrediction/All?api_key=f640f6ee5156453b864f6582f585dd73';
+  `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/All?api_key=${apiKey}`;
 
-const getTrains = async url => {
-  try {
-    const response = await axios.get(url);
-    return response.data.Trains;
-  } catch (error) {
-    console.log(error);
-  }
-};
+const trains = new Command(trainsUrl, 'Trains');
 
 export default function(name) {
-  getTrains(trainsUrl).then(data => {
+  trains.getResults().then(data => {
     const heading = name.toUpperCase();
 
     const stationName = data.filter(color => color.LocationName === `${name}`);
