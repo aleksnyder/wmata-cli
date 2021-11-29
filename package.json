@@ -13,16 +13,15 @@
     "url": "https://github.com/aleksnyder/wmata-cli/issues"
   },
   "version": "1.0.0",
-  "main": "./app/cli.js",
+  "main": "./bin/cli.js",
   "bin": {
-    "wmata-cli": "./app/cli.js",
-    "wcli": "./app/cli.js"
+    "wmata-cli": "./bin/cli.js",
+    "wcli": "./bin/cli.js"
   },
   "files": [
     "app"
   ],
   "scripts": {
-    "build": "tsc app/*.ts",
     "localdev": "NODE_ENV=development node bin/cli.js",
     "lint": "eslint app",
     "lint:fix": "npm run lint -- --fix",
