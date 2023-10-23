@@ -16,12 +16,12 @@ export default () => {
       console.log('');
       console.log('  Example:');
       console.log(
-        `    ${green(
+        `    ${wmataGreen(
           'wmata-cli list -c Orange'
         )}    => Show stations belonging to the Orange line.  Lines include "Orange", "Blue", "Silver", "Green", "Yellow", and "Red"`
       );
       console.log('');
-      console.log(`  For more detailed information, please check the GitHub page: ${green(
+      console.log(`  For more detailed information, please check the GitHub page: ${wmataGreen(
         'https://github.com/aleksnyder/wmata-cli'
       )}
           `);
@@ -57,12 +57,12 @@ export default () => {
       console.log('');
       console.log('  Example:');
       console.log(
-        `    ${green(
+        `    ${wmataGreen(
           'wmata-cli station Smithsonian'
         )}    => Show stations belonging to a particular line.  Lines include "Orange", "Blue", "Silver", "Green", "Yellow", and "Red"`
       );
       console.log('');
-      console.log(`  For more detailed information, please check the GitHub page: ${green(
+      console.log(`  For more detailed information, please check the GitHub page: ${wmataGreen(
         'https://github.com/aleksnyder/wmata-cli'
       )}
           `);
@@ -78,7 +78,7 @@ export default () => {
       console.log('');
       console.log('  List outages in the WMATA system');
       console.log('');
-      console.log(`  For more detailed information, please check the GitHub page: ${green(
+      console.log(`  For more detailed information, please check the GitHub page: ${wmataGreen(
         'https://github.com/aleksnyder/wmata-cli'
       )}
           `);
