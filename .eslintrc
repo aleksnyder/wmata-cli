@@ -1,13 +1,14 @@
 {
-  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
   "extends": [
     "eslint:recommended",
-    "airbnb",
     "prettier"
   ],
   "env": {
-    "node": true,
-    "jest": true
+    "node": true
   },
   "rules": {
     "arrow-parens": "off",
@@ -16,17 +17,9 @@
     "import/no-dynamic-require": "off",
     "global-require": "off",
     "no-underscore-dangle": "off",
-    "no-console": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        trailingComma: 'es5',
-        singleQuote: true,
-      }
-    ]
+    "no-console": "off"
   },
   "plugins": [
-    "babel",
     "prettier"
   ]
 }
