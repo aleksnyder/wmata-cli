@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export default class Command {
   constructor(url, key) {
     this.url = url;
@@ -8,8 +6,9 @@ export default class Command {
   
   async getResults() {
     try {
-      const response = await axios.get(this.url);
-      return response.data[this.key];
+      const response = await fetch(this.url);
+      const data = await response.json();
+      return data[this.key];
     } catch (error) {
       console.log(error);
     }
