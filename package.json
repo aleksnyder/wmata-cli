@@ -25,10 +25,7 @@
     "localdev": "NODE_ENV=development node bin/cli.js",
     "lint": "eslint app",
     "lint:fix": "npm run lint -- --fix",
-    "test": "npm run lint:fix && npm run testonly:cov",
-    "testonly": "NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
-    "testonly:cov": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --runInBand --forceExit --no-cache",
-    "testonly:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
+    "test": "node --test ./app"
   },
   "dependencies": {
     "chalk": "^2.3.0",
@@ -38,14 +35,9 @@
   },
   "devDependencies": {
     "eslint": "^7.5.0",
-    "eslint-config-airbnb": "^19.0.1",
     "eslint-config-prettier": "^3.4.0",
-    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.3",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "jest": "^27.3.0",
     "prettier": "^1.8.2",
     "prettier-package-json": "^1.4.0"
   },
@@ -57,28 +49,5 @@
   ],
   "engines": {
     "node": ">=20.0.0"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "app/**/*.js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/__tests__/"
-    ],
-    "testPathIgnorePatterns": [
-      "node_modules/"
-    ],
-    "transform": {}
-  },
-  "pkg": {
-    "scripts": [
-      "app/**/*.js"
-    ],
-    "targets": [
-      "node20-macos",
-      "node20-linux",
-      "node20-win"
-    ]
   }
 }
