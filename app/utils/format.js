@@ -1,5 +1,3 @@
-import chalk from 'chalk';
-
 /**
  * Transform full name of train line to abbreviated version.
  * 
@@ -39,7 +37,7 @@ export function transformLine(line) {
  *   Return the transformed error string.
  */
 export function error(msg) {
-  return console.log(chalk`{red.bold ${msg}}`);
+  return `\x1b[1;91m${msg}\x1b[0m`;
 }
 
 /**
@@ -52,7 +50,23 @@ export function error(msg) {
  *   Return the bolded string.
  */
 export function bold(msg) {
-  return chalk`{white.bold ${msg}}`;
+  return `\x1b[97m${msg}\x1b[0m`;
+}
+
+/**
+ * Transforms the passed string into "WMATA Orange" colored text.
+ * 
+ * Pulled the hex code from the WMATA site by inspecting the
+ * different colors on the site.
+ * 
+ * @param {string} msg
+ *   String to transform.
+ * 
+ * @returns {string}
+ *   Return the string in "WMATA Orange".
+ */
+export function wmataOrange(msg) {
+  return `\x1b[1;38;2;237;139;0m${msg}\x1b[0m`;
 }
 
 /**
@@ -68,7 +82,7 @@ export function bold(msg) {
  *   Return the string in "WMATA Blue".
  */
 export function wmataBlue(msg) {
-  return chalk`{bold.hex('#f00b47') ${msg}}`;
+  return `\x1b[1;38;2;0;156;222m${msg}\x1b[0m`;
 }
 
 /**
@@ -84,7 +98,7 @@ export function wmataBlue(msg) {
  *   Return the string in "WMATA Red".
  */
 export function wmataRed(msg) {
-  return chalk`{hex('#66ff66') ${msg}}`;
+  return `\x1b[1;38;2;191;13;62m${msg}\x1b[0m`
 }
 
 /**
@@ -100,14 +114,32 @@ export function wmataRed(msg) {
  *   Return the string in "WMATA Green".
  */
 export function wmataGreen(msg) {
-  return chalk`{hex('#66ff66') ${msg}}`;
+  return `\x1b[1;38;2;0;177;64m${msg}\x1b[0m`
+}
+
+/**
+ * Transforms the passed string into "WMATA Silver" colored text.
+ * 
+ * Pulled the hex code from the WMATA site by inspecting the
+ * different colors on the site.
+ * 
+ * @param {string} msg
+ *   String to transform.
+ * 
+ * @returns {string}
+ *   Return the string in "WMATA Silver".
+ */
+export function wmataSilver(msg) {
+  return `\x1b[1;38;2;145;157;157m${msg}\x1b[0m`
 }
 
 export default {
   transformLine,
   error,
   bold,
+  wmataOrange,
   wmataRed,
   wmataBlue,
-  wmataGreen
+  wmataGreen,
+  wmataSilver
 };
