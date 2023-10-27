@@ -28,7 +28,6 @@
     "test": "node --test ./app"
   },
   "dependencies": {
-    "chalk": "^2.3.0",
     "cli-table3": "^0.5.1",
     "commander": "^2.19.0",
     "inquirer": "^6.2.1"
