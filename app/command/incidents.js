@@ -10,25 +10,23 @@ const incidents = new Command(incidentsUrl, 'Incidents');
 
 export default function() {
   incidents.getResults().then(data => {
-    const incidentsTable = basicTable();
+    const incidentsTable = basicTable({
+      colWidths: [20, 20, 60],
+      wordWrap: true,
+      wrapOnWordBoundary: false
+    });
 
-    incidentsTable.push([
-      { colSpan: 36, content: 'Incidents', hAlign: 'center' },
-    ]);
     incidentsTable.push(
       vAlignCenter([
         {
-          colSpan: 6,
           content: bold('Type'),
           hAlign: 'center',
         },
         {
-          colSpan: 6,
           content: bold('Line(s)'),
           hAlign: 'center',
         },
         {
-          colSpan: 24,
           content: bold('Description'),
         },
       ])
@@ -44,17 +42,14 @@ export default function() {
       incidentsTable.push(
         vAlignCenter([
           {
-            colSpan: 6,
             content: `${type}`,
             hAlign: 'center',
           },
           {
-            colSpan: 6,
             content: `${lines}`,
             hAlign: 'center',
           },
           {
-            colSpan: 24,
             content: `${description}`,
           },
         ])
@@ -63,7 +58,7 @@ export default function() {
 
     if (data.length === 0) {
       incidentsTable.push([
-        { colSpan: 36, content: 'Hooray!  No incidents at this time' },
+        { content: 'Hooray!  No incidents at this time' },
       ]);
     }
 
