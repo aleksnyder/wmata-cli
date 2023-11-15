@@ -6,7 +6,7 @@ All data comes from [WMATA Developer](https://developer.wmata.com/docs/services/
 
 ## Install
 
-In order to use wmata-cli, make sure that you have [Node](https://nodejs.org/) version 12.0.0 or higher.
+In order to use wmata-cli, make sure that you have [Node](https://nodejs.org/) version 20.0.0 or higher.
 
 ```
 $ npm install -g wmata-cli
