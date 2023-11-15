@@ -21,7 +21,7 @@ const vAlignCenter = (/** @type {any[]} */ columns) =>
 /**
  * Basic table structure to be shared across all command outputs.
  */
-const basicTable = () =>
+const basicTable = (settings = []) =>
   new Table({
     head: [],
     chars: {
@@ -41,7 +41,7 @@ const basicTable = () =>
       'right-mid': '╢',
       middle: '│',
     },
-    wordWrap: true,
+    ...settings
   });
 
 export {
